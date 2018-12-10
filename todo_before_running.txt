@@ -1,0 +1,36 @@
+1. Add the following three games 
+	- 10 10 0 12 11 0 12 0 10 10 5 12 0 11 12 5 10 10
+	- 2 0 2 0 2 0 2 0 2 0 1 3 4 1 4 1 4 1 4 1 1 3 3 7 10 4 10 4 10 4 1 3 3 7 5 13 18 6 18 6 1 3 3 7 5 13 7 23 30 8
+	- 12 12 4 4 0 14 4 4 12 12 0 0 0 0 14 0 2 2 6 0 6 0 6 0
+2. Mechanical Turk Configuration 
+	- AWS key: AKIAJQ5URNSGJRVEMIWQ
+	- AWS secret access key: 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
+	- Participants: 60	 
+3. Experiment title: Experiment with large bonus payments! 
+4 Experiment desciption:
+	Bonus payment expected to be between 4$-15$. You will play simultaneously with other workers. You need to complete a questionnaire and wait for other workers to join before the experiment starts. 
+5. Keywords: Experiment, bonus payments
+6. Conversion rate: 0.01
+7. Fixed Reward: 2
+8. Approved hits restriction: 30
+9. Approved % hits approved: 90%
+
+SAVE!
+
+10. Starting time: 13 minuter senare! 
+11. Rounds: 30
+12. Minutes per rouond: 1
+13. Percent of participants: 0
+
+
+Advanced options 
+
+14. </> Instructions: Mechanical Turk
+15. Lottery payment: [Blank]
+16. 0 0 0 for the follwing three options 
+17. Questionnaire options: show questionnaire
+18. Öppna 
+
+EFTER 
+
+- Godkänn hits först, sen bonus payments

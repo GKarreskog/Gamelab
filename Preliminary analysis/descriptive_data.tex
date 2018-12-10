@@ -1,0 +1,313 @@
+
+%
+% In the preamble we load different packages that makes everything work as we want it to.
+%
+\documentclass[a4paper,12pt,american]{article}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,accents} %important math packages
+\usepackage{enumerate} % package for making different lists
+\usepackage[T1]{fontenc} % Encoding of fonts
+\usepackage{lmodern} % Latin modern font - needed for fontenc
+\usepackage[utf8]{inputenc} % Encoding of input text
+\usepackage[kerning]{microtype} % Better looking text
+\usepackage[babel]{csquotes} % Better looking quotes
+\usepackage{booktabs} % Better looking tables
+\usepackage{babel} % Language control, for hyphenation etc
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ top=20mm,
+ }
+
+\usepackage[round,authoryear]{natbib}
+
+\usepackage{sgame}
+% Some useful math stuff
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\usepackage{caption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+%\pgfplotsset{compat=1.12}
+\pgfplotsset{compat=1.11}
+\usepackage{float}
+\usepackage{csvsimple}
+\usepackage{tikz}
+\usepgfplotslibrary{fillbetween}
+\usepackage[font=it]{caption}
+\captionsetup{width=0.9\textwidth}
+
+\newtheorem{theo}{Theorem}
+\theoremstyle{definition}
+\newtheorem{deff}{Definition}
+
+\setlength{\parskip}{10pt plus 1pt minus 1pt}
+\setlength{\parindent}{0in}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\bm}[1]{\mathbf{#1}}
+\newcommand{\bs}{\bm{s}}
+\newcommand{\bh}{\bm{h}}
+\newcommand{\bx}{\bm{x}}
+\newcommand{\bX}{\bm{X}}
+\newcommand{\bb}{\bm{b}}
+\newcommand{\bp}{\bm{p}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Here's where the document begins
+%
+
+\title{Summary statistics of first experiment on MTurk}
+\author{Gustav Karreskog}
+\date{\today}
+\begin{document}
+\maketitle 
+
+
+\section{Rock Paper Scissors}
+
+\begin{figure}[H]
+	\begin{center}	
+		\begin{game}{3}{3}[Game 1 - Unstable RPS]
+			& $R$     & $P$ & $S$ \\
+			Rock & $10,10$ & $0,12$ & $11,0$ \\
+			Paper & $12,0$ & $10,10$ & $5,12$ \\
+			Scissors & $0,11$ & $12,5$ & $10,10$ \\
+		\end{game}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../python/game1.png}
+	\caption{Role population 1 to the left and role population 2 to the right. Strategies numbered in order of appearance.}
+\end{figure}
+
+\begin{table}[H]
+\makebox[\textwidth][c]{
+% \centering
+\begin{tabular}{lcccccccccccc}
+\toprule
+{} &  role &  n rounds &  first &  last &  n same &  \% same &  n mix &  \% mix &  mix PO &      PO &  max PO &  \% PO \\
+pid &       &           &        &       &         &         &        &        &         &         &         &       \\
+\midrule
+65  &     1 &         1 &      0 &     0 &       0 &    0.00 &      0 &   0.00 &    8.00 &    9.00 &    9.00 &  1.00 \\
+53  &     0 &        30 &      0 &    29 &      23 &    0.77 &      0 &   0.00 &  235.37 &  252.97 &  270.35 &  0.94 \\
+41  &     0 &        29 &      0 &    29 &      26 &    0.90 &      0 &   0.00 &  227.56 &  247.61 &  261.62 &  0.95 \\
+59  &     0 &        30 &      0 &    29 &      24 &    0.80 &     29 &   0.97 &  235.37 &  250.66 &  270.35 &  0.93 \\
+63  &     0 &        30 &      0 &    29 &      20 &    0.67 &      1 &   0.03 &  235.37 &  257.12 &  270.35 &  0.95 \\
+38  &     1 &        24 &      0 &    27 &       8 &    0.33 &     23 &   0.96 &  189.69 &  190.45 &  244.33 &  0.78 \\
+57  &     1 &        30 &      0 &    29 &      15 &    0.50 &     18 &   0.60 &  236.58 &  283.54 &  305.07 &  0.93 \\
+61  &     0 &        30 &      0 &    29 &      29 &    0.97 &      0 &   0.00 &  235.37 &  255.58 &  270.35 &  0.95 \\
+32  &     1 &        29 &      1 &    29 &      19 &    0.66 &      6 &   0.21 &  228.58 &  276.33 &  296.07 &  0.93 \\
+60  &     1 &        27 &      2 &    29 &       1 &    0.04 &     14 &   0.52 &  213.00 &  218.70 &  275.61 &  0.79 \\
+31  &     0 &        29 &      1 &    29 &      15 &    0.52 &      0 &   0.00 &  227.37 &  247.02 &  259.85 &  0.95 \\
+48  &     0 &        29 &      1 &    29 &      28 &    0.97 &      0 &   0.00 &  227.37 &  247.41 &  259.85 &  0.95 \\
+55  &     1 &        27 &      2 &    29 &       5 &    0.19 &     22 &   0.81 &  213.12 &  199.73 &  275.00 &  0.73 \\
+34  &     1 &        29 &      1 &    29 &       2 &    0.07 &     17 &   0.59 &  228.58 &  232.45 &  296.07 &  0.79 \\
+67  &     1 &        29 &      1 &    29 &      24 &    0.83 &     28 &   0.97 &  228.58 &  249.32 &  296.07 &  0.84 \\
+66  &     0 &        29 &      1 &    29 &      17 &    0.59 &     18 &   0.62 &  227.37 &  239.74 &  259.85 &  0.92 \\
+33  &     1 &        24 &      6 &    29 &      17 &    0.71 &      1 &   0.04 &  188.90 &  200.18 &  245.34 &  0.82 \\
+56  &     1 &        27 &      3 &    29 &       8 &    0.30 &      5 &   0.19 &  213.07 &  196.84 &  276.89 &  0.71 \\
+71  &     0 &        27 &      3 &    29 &      23 &    0.85 &      0 &   0.00 &  211.76 &  230.08 &  241.85 &  0.95 \\
+75  &     0 &         7 &     23 &    29 &       1 &    0.14 &      3 &   0.43 &   54.83 &   55.00 &   61.86 &  0.89 \\
+37  &     1 &        24 &      5 &    29 &      15 &    0.62 &     14 &   0.58 &  189.35 &  199.68 &  244.47 &  0.82 \\
+73  &     0 &        25 &      5 &    29 &      15 &    0.60 &      0 &   0.00 &  195.99 &  215.09 &  224.15 &  0.96 \\
+74  &     1 &        24 &      6 &    29 &       6 &    0.25 &      7 &   0.29 &  188.90 &  220.51 &  245.34 &  0.90 \\
+35  &     1 &        25 &      5 &    29 &      18 &    0.72 &     16 &   0.64 &  197.24 &  195.88 &  254.64 &  0.77 \\
+70  &     0 &        23 &      7 &    29 &      19 &    0.83 &     21 &   0.91 &  180.46 &  174.81 &  205.89 &  0.85 \\
+36  &     0 &        17 &      9 &    29 &       5 &    0.29 &      4 &   0.24 &  133.36 &  143.27 &  150.66 &  0.95 \\
+72  &     1 &        22 &      8 &    29 &      18 &    0.82 &      0 &   0.00 &  173.08 &  120.62 &  223.62 &  0.54 \\
+85  &     1 &        20 &      9 &    29 &       4 &    0.20 &     15 &   0.75 &  157.35 &  169.94 &  203.32 &  0.84 \\
+86  &     0 &        20 &      9 &    29 &      16 &    0.80 &     19 &   0.95 &  157.11 &  158.45 &  177.83 &  0.89 \\
+79  &     1 &        20 &      9 &    29 &      19 &    0.95 &      0 &   0.00 &  157.41 &  204.04 &  204.04 &  1.00 \\
+84  &     0 &        21 &      9 &    29 &       2 &    0.10 &     20 &   0.95 &  164.87 &  170.52 &  186.63 &  0.91 \\
+77  &     1 &        18 &     10 &    29 &      17 &    0.94 &      0 &   0.00 &  141.55 &  147.07 &  184.34 &  0.80 \\
+42  &     0 &        20 &     10 &    29 &      11 &    0.55 &      9 &   0.45 &  157.14 &  167.63 &  177.46 &  0.94 \\
+54  &     1 &        13 &     11 &    29 &       2 &    0.15 &      6 &   0.46 &  102.34 &  116.69 &  132.25 &  0.88 \\
+46  &     0 &        17 &     12 &    29 &       8 &    0.47 &      3 &   0.18 &  133.54 &  140.16 &  150.09 &  0.93 \\
+83  &     0 &        15 &     15 &    29 &       7 &    0.47 &      2 &   0.13 &  117.70 &  122.05 &  132.83 &  0.92 \\
+52  &     1 &        12 &     18 &    29 &       4 &    0.33 &      0 &   0.00 &   94.21 &   87.28 &  122.21 &  0.71 \\
+62  &     1 &        10 &     19 &    29 &       4 &    0.40 &      0 &   0.00 &   78.55 &   71.99 &  101.62 &  0.71 \\
+91  &     1 &         7 &     23 &    29 &       5 &    0.71 &      0 &   0.00 &   54.87 &   69.41 &   70.48 &  0.98 \\
+39  &     0 &         5 &     25 &    29 &       3 &    0.60 &      1 &   0.20 &   39.09 &   41.87 &   44.01 &  0.95 \\
+\midrule
+all &  0.52 &     21.88 &   6.72 &  28.22 &   12.58 &    0.54 &   8.05 &   0.34 &  172.00 &  181.92 &  209.54 &  0.87 \\
+\bottomrule
+\end{tabular}
+
+}
+\caption{Summary data of all players play in the RPS game. The mean values are unweighted.}
+\end{table}
+\subsection{Description of table contents}
+\begin{description}
+	\item[pid:] Player ID 
+	\item[Role:] The role of the player, where 0 is row and 1 column. 
+	\item[n rounds:] The number of rounds the player participated in.
+	\item[first:] The first round the player participated in. 
+	\item[last:] The last round the player participated in. 
+	\item[n same:] The number of rounds the player played the same strategy as in the previous round played. 
+	\item[\% same:] The share of rounds the player played the same strategy as in the previous round played. 
+	\item[n mixed:] The number of rounds the player played a mixed strategy. 
+	\item[\% mixed:] The share of rounds the player played a mixed strategy. 
+	\item[payoff:] The actual payoff received by the player. 
+	\item[opt payoff:] The maximal payoff the player could obtained given the rounds he/she participated in. 
+\end{description}
+
+\section{The Centipede Game}
+\begin{figure}[H]
+	\begin{center}
+		\begin{game}{5}{5}[Game 2 - The Centipede Game]
+			& $2$     & $4$ & $6$ & $8$ & $ 10 $\\
+			$ 1 $ & $2,0$ & $2,0$ & $2,0$ & $2,0$ & $2,0  $\\
+			$ 3 $ & $1,3$ & $4,1$ & $4,1$ & $4,1$ & $ 4,1 $\\
+			$ 5 $ & $1,3$ & $3,7$ & $10,4$ & $10,4$ & $ 10,4  $\\
+			$ 7 $ & $1,3$ & $3,7$ & $5,13$ & $18,6$ & $ 18,6 $\\
+			$ 9 $ & $1,3$ & $3,7$ & $5,13$ & $7,23$ & $ 30,8 $
+		\end{game}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../python/game2.png}
+	\caption{Role population 1 to the left and role population 2 to the right. Strategies numbered in order of appearance.}
+\end{figure}
+
+\begin{table}[H]
+\makebox[\textwidth][c]{
+	\begin{tabular}{lcccccccccccc}
+	\toprule
+	{} &  role &  n rounds &  first &  last &  n same &  \% same &  n mix &  \% mix &  mix PO &      PO &  max PO &  \% PO \\
+	pid &       &           &        &       &         &         &        &        &         &         &         &       \\
+	\midrule
+	65  &     1 &         1 &      0 &     0 &       0 &    0.00 &      0 &   0.00 &    8.90 &   10.00 &   14.50 &  0.69 \\
+	53  &     0 &        30 &      0 &    29 &      26 &    0.87 &      0 &   0.00 &  236.18 &  337.81 &  397.55 &  0.85 \\
+	41  &     0 &        29 &      0 &    29 &      24 &    0.83 &      0 &   0.00 &  227.72 &  332.02 &  383.18 &  0.87 \\
+	59  &     0 &        30 &      0 &    29 &      27 &    0.90 &     29 &   0.97 &  236.18 &  365.12 &  397.55 &  0.92 \\
+	63  &     0 &        30 &      0 &    29 &      21 &    0.70 &      5 &   0.17 &  236.18 &  384.69 &  397.55 &  0.97 \\
+	38  &     1 &        23 &      0 &    27 &      20 &    0.87 &     22 &   0.96 &  198.54 &  197.79 &  324.03 &  0.61 \\
+	57  &     1 &        30 &      0 &    29 &      16 &    0.53 &     28 &   0.93 &  257.03 &  389.81 &  415.53 &  0.94 \\
+	61  &     0 &        30 &      0 &    29 &      29 &    0.97 &      0 &   0.00 &  236.18 &  343.68 &  397.55 &  0.86 \\
+	32  &     1 &        30 &      0 &    29 &      17 &    0.57 &     12 &   0.40 &  257.03 &  393.29 &  415.53 &  0.95 \\
+	60  &     1 &        30 &      0 &    29 &       0 &    0.00 &     28 &   0.93 &  257.03 &  330.56 &  415.53 &  0.80 \\
+	31  &     0 &        29 &      1 &    29 &      22 &    0.76 &      0 &   0.00 &  227.73 &  375.07 &  380.55 &  0.99 \\
+	48  &     0 &        30 &      0 &    29 &      28 &    0.93 &      0 &   0.00 &  236.18 &  386.97 &  397.55 &  0.97 \\
+	55  &     1 &        30 &      0 &    29 &       4 &    0.13 &     21 &   0.70 &  257.03 &  268.80 &  415.53 &  0.65 \\
+	34  &     1 &        29 &      1 &    29 &       2 &    0.07 &     10 &   0.34 &  248.13 &  256.09 &  401.03 &  0.64 \\
+	67  &     1 &        28 &      2 &    29 &      18 &    0.64 &     26 &   0.93 &  239.04 &  272.93 &  385.37 &  0.71 \\
+	66  &     0 &        28 &      2 &    29 &      20 &    0.71 &     12 &   0.43 &  222.30 &  355.64 &  370.67 &  0.96 \\
+	33  &     1 &        27 &      2 &    29 &      10 &    0.37 &      9 &   0.33 &  229.19 &  287.28 &  366.62 &  0.78 \\
+	56  &     1 &        13 &      4 &    29 &      10 &    0.77 &      0 &   0.00 &  110.82 &  158.17 &  177.77 &  0.89 \\
+	71  &     0 &        26 &      4 &    29 &      21 &    0.81 &      0 &   0.00 &  205.95 &  277.98 &  343.67 &  0.81 \\
+	75  &     0 &         7 &     23 &    29 &       2 &    0.29 &      2 &   0.29 &   54.17 &   81.44 &   89.51 &  0.91 \\
+	37  &     1 &        25 &      5 &    29 &      13 &    0.52 &     19 &   0.76 &  209.83 &  274.96 &  330.64 &  0.83 \\
+	73  &     0 &        26 &      4 &    29 &      22 &    0.85 &      0 &   0.00 &  205.95 &  331.58 &  343.67 &  0.96 \\
+	74  &     1 &        25 &      5 &    29 &       9 &    0.36 &     10 &   0.40 &  209.83 &  306.15 &  330.64 &  0.93 \\
+	35  &     1 &        24 &      6 &    29 &      10 &    0.42 &     21 &   0.88 &  201.00 &  249.57 &  315.49 &  0.79 \\
+	70  &     0 &        23 &      7 &    29 &      15 &    0.65 &     21 &   0.91 &  183.67 &  272.01 &  306.80 &  0.89 \\
+	36  &     0 &        23 &      7 &    29 &      13 &    0.57 &      4 &   0.17 &  183.67 &  292.88 &  306.80 &  0.95 \\
+	72  &     1 &        21 &      9 &    29 &      15 &    0.71 &     18 &   0.86 &  174.20 &  179.98 &  269.74 &  0.67 \\
+	85  &     1 &        21 &      9 &    29 &       4 &    0.19 &     20 &   0.95 &  174.20 &  203.16 &  269.74 &  0.75 \\
+	86  &     0 &        20 &      9 &    29 &       8 &    0.40 &     19 &   0.95 &  160.67 &  224.18 &  269.01 &  0.83 \\
+	79  &     1 &        19 &     10 &    29 &      17 &    0.89 &      0 &   0.00 &  158.19 &  234.40 &  245.65 &  0.95 \\
+	84  &     0 &        15 &     12 &    29 &       0 &    0.00 &     14 &   0.93 &  120.39 &  166.34 &  199.90 &  0.83 \\
+	77  &     1 &        20 &      9 &    29 &      12 &    0.60 &      1 &   0.05 &  166.24 &  249.20 &  257.90 &  0.97 \\
+	42  &     0 &        20 &     10 &    29 &       8 &    0.40 &     18 &   0.90 &  161.03 &  235.19 &  268.15 &  0.88 \\
+	54  &     1 &        19 &     11 &    29 &       5 &    0.26 &     17 &   0.89 &  158.31 &  174.40 &  245.78 &  0.71 \\
+	46  &     0 &        17 &     12 &    29 &       3 &    0.18 &      9 &   0.53 &  136.71 &  185.88 &  227.97 &  0.82 \\
+	83  &     0 &        16 &     14 &    29 &       5 &    0.31 &     11 &   0.69 &  127.47 &  189.88 &  212.12 &  0.90 \\
+	52  &     1 &        11 &     19 &    29 &       2 &    0.18 &      1 &   0.09 &   90.84 &  114.48 &  139.52 &  0.82 \\
+	62  &     1 &        10 &     19 &    29 &       1 &    0.10 &      0 &   0.00 &   83.24 &   83.41 &  128.48 &  0.65 \\
+	91  &     1 &         6 &     24 &    29 &       2 &    0.33 &      4 &   0.67 &   50.02 &   73.29 &   77.76 &  0.94 \\
+	39  &     0 &         4 &     25 &    29 &       3 &    0.75 &      3 &   0.75 &   31.06 &   43.90 &   50.62 &  0.87 \\
+	\midrule
+	all &  0.52 &     21.88 &   6.62 &  28.22 &    12.1 &    0.51 &  10.35 &   0.47 &  179.20 &  247.25 &  292.08 &  0.84 \\
+	\bottomrule
+	\end{tabular}
+
+
+	}
+	\caption{Summary data of all players play in the Centipede game. The mean values are unweighted.}
+\end{table}
+
+\section{Forward induction made difficult}
+
+\begin{figure}[H]
+	\begin{center}	
+		\begin{game}{4}{3}[Game 3 - Forward induction made difficult]
+			& $L$     & $C$ & $R$ \\
+			$ T $ & $12,12$ & $4,4$ & $0,14$ \\
+			$ M $ & $4,4$ & $12,12$ & $0,0$ \\
+			$ B $ & $0,0$ & $14,0$ & $2,2$ \\
+			$ Out $ & $6,0$ & $6,0$ & $6,0$ 
+		\end{game}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../python/game3.png}
+	\caption{Role population 1 to the left and role population 2 to the right. Strategies numbered in order of appearance.}
+\end{figure}
+
+\begin{table}[H]
+\makebox[\textwidth][c]{
+	\begin{tabular}{lcccccccccccc}
+	\toprule
+	{} &  role &  n rounds &  first &  last &  n same &  \% same &  n mix &  \% mix &  mix PO &      PO &  max PO &  \% PO \\
+	pid &       &           &        &       &         &         &        &        &         &         &         &       \\
+	\midrule
+	65  &     1 &         1 &      0 &     0 &       0 &    0.00 &      0 &   0.00 &    4.33 &    2.33 &    6.67 &  0.35 \\
+	53  &     0 &        30 &      0 &    29 &      29 &    0.97 &      0 &   0.00 &  202.36 &  252.68 &  291.29 &  0.87 \\
+	41  &     0 &        28 &      1 &    29 &      24 &    0.86 &      0 &   0.00 &  192.66 &  230.57 &  277.37 &  0.83 \\
+	59  &     0 &        30 &      0 &    29 &      27 &    0.90 &     29 &   0.97 &  202.36 &  252.77 &  291.29 &  0.87 \\
+	63  &     0 &        29 &      1 &    29 &      24 &    0.83 &      2 &   0.07 &  198.49 &  280.19 &  285.29 &  0.98 \\
+	38  &     1 &        20 &      0 &    27 &       6 &    0.30 &     19 &   0.95 &   77.22 &   77.55 &  116.57 &  0.67 \\
+	57  &     1 &        29 &      1 &    29 &      15 &    0.52 &      8 &   0.28 &  107.89 &  152.64 &  165.92 &  0.92 \\
+	61  &     0 &        30 &      0 &    29 &      28 &    0.93 &      0 &   0.00 &  202.36 &  290.04 &  291.29 &  1.00 \\
+	32  &     1 &        29 &      1 &    29 &      24 &    0.83 &      1 &   0.03 &  107.89 &  163.11 &  165.92 &  0.98 \\
+	60  &     1 &        29 &      1 &    29 &       0 &    0.00 &     21 &   0.72 &  107.89 &  127.77 &  165.92 &  0.77 \\
+	31  &     0 &        30 &      0 &    29 &      25 &    0.83 &      1 &   0.03 &  202.36 &  285.96 &  291.29 &  0.98 \\
+	48  &     0 &        29 &      1 &    29 &      25 &    0.86 &      0 &   0.00 &  198.49 &  235.72 &  285.29 &  0.83 \\
+	55  &     1 &        28 &      2 &    29 &      21 &    0.75 &      3 &   0.11 &  103.02 &  157.99 &  159.92 &  0.99 \\
+	34  &     1 &        29 &      1 &    29 &       9 &    0.31 &      9 &   0.31 &  107.89 &   97.19 &  165.92 &  0.59 \\
+	67  &     1 &        25 &      5 &    29 &      18 &    0.72 &     22 &   0.88 &   92.16 &  102.12 &  145.64 &  0.70 \\
+	66  &     0 &        24 &      3 &    29 &      19 &    0.79 &      9 &   0.38 &  165.64 &  232.26 &  239.01 &  0.97 \\
+	33  &     1 &        28 &      2 &    29 &      24 &    0.86 &      4 &   0.14 &  103.02 &  149.74 &  159.92 &  0.94 \\
+	56  &     1 &        22 &      3 &    29 &      18 &    0.82 &      1 &   0.05 &   81.24 &   74.94 &  124.91 &  0.60 \\
+	71  &     0 &        27 &      3 &    29 &      25 &    0.93 &      0 &   0.00 &  185.56 &  229.65 &  267.10 &  0.86 \\
+	75  &     0 &        26 &      4 &    29 &       4 &    0.15 &     16 &   0.62 &  178.90 &  230.43 &  258.16 &  0.89 \\
+	37  &     1 &        26 &      4 &    29 &      12 &    0.46 &     17 &   0.65 &   95.37 &  116.76 &  151.14 &  0.77 \\
+	73  &     0 &        26 &      4 &    29 &      20 &    0.77 &      1 &   0.04 &  178.90 &  250.17 &  258.16 &  0.97 \\
+	74  &     1 &        25 &      5 &    29 &      11 &    0.44 &     10 &   0.40 &   92.16 &  124.90 &  145.64 &  0.86 \\
+	35  &     1 &        23 &      6 &    29 &      16 &    0.70 &     19 &   0.83 &   84.12 &   87.87 &  130.23 &  0.67 \\
+	70  &     0 &        21 &      7 &    29 &      18 &    0.86 &     19 &   0.90 &  146.81 &  123.65 &  213.11 &  0.58 \\
+	36  &     0 &        22 &      8 &    29 &      12 &    0.55 &      9 &   0.41 &  153.87 &  167.69 &  223.92 &  0.75 \\
+	72  &     1 &        21 &      9 &    29 &      20 &    0.95 &      0 &   0.00 &   76.65 &  119.34 &  119.34 &  1.00 \\
+	85  &     1 &        22 &      8 &    29 &       5 &    0.23 &     12 &   0.55 &   80.35 &  116.39 &  125.14 &  0.93 \\
+	86  &     0 &        19 &     10 &    29 &      13 &    0.68 &     18 &   0.95 &  132.17 &  178.54 &  192.30 &  0.93 \\
+	79  &     1 &        19 &     10 &    29 &      18 &    0.95 &      0 &   0.00 &   69.02 &  105.80 &  105.80 &  1.00 \\
+	84  &     0 &         6 &     21 &    29 &       0 &    0.00 &      4 &   0.67 &   43.19 &   59.86 &   63.68 &  0.94 \\
+	77  &     1 &        21 &      9 &    29 &       6 &    0.29 &      2 &   0.10 &   76.65 &   96.15 &  119.34 &  0.81 \\
+	42  &     0 &        17 &     11 &    29 &      12 &    0.71 &      2 &   0.12 &  117.34 &   59.06 &  170.25 &  0.35 \\
+	54  &     1 &        17 &     11 &    29 &       7 &    0.41 &      7 &   0.41 &   61.66 &   78.02 &   95.03 &  0.82 \\
+	46  &     0 &        16 &     13 &    29 &       3 &    0.19 &     13 &   0.81 &  109.75 &  116.69 &  158.75 &  0.74 \\
+	83  &     0 &        16 &     14 &    29 &       4 &    0.25 &      8 &   0.50 &  110.00 &  102.19 &  159.62 &  0.64 \\
+	52  &     1 &         9 &     21 &    29 &       5 &    0.56 &      0 &   0.00 &   32.51 &   43.57 &   49.82 &  0.87 \\
+	62  &     1 &        10 &     19 &    29 &       6 &    0.60 &      0 &   0.00 &   36.33 &   39.29 &   55.60 &  0.71 \\
+	91  &     1 &         6 &     24 &    29 &       3 &    0.50 &      1 &   0.17 &   20.61 &   30.85 &   32.14 &  0.96 \\
+	39  &     0 &         2 &     28 &    29 &       1 &    0.50 &      0 &   0.00 &   14.83 &   12.00 &   22.07 &  0.54 \\
+	\midrule
+	all &  0.52 &     21.68 &   6.78 &  28.22 &   13.92 &    0.59 &   7.18 &   0.33 &  113.85 &  141.36 &  168.64 &  0.81 \\
+	\bottomrule
+	\end{tabular}
+	}
+	\caption{Summary data of all players play in the difficult forward induction game. The mean values are unweighted.}
+\end{table}
+
+
+\end{document}
