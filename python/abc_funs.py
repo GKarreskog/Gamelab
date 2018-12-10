@@ -1,3 +1,6 @@
+import pandas as pd
+import numpy as np
+
 def calc_likelihood(simulated_flat, hists_flat):
     simulated = unflatten_data(simulated_flat, shape)
     hists = unflatten_data(hists_flat, shape)
