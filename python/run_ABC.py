@@ -1,5 +1,6 @@
 # Load functions
 %run vectorized_funs.py
+%run abc_funs.py
 import matplotlib
 # matplotlib.use('Agg')
 import matplotlib.pyplot as plt
